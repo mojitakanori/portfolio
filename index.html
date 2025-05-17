@@ -391,6 +391,23 @@
             border-radius: 20px;
             font-size: 0.8rem;
         }
+
+        .usage-link {
+          display: inline-block;
+          margin: 0.5rem 0 1rem 0;
+          padding: 6px 12px;
+          font-size: 0.9rem;
+          color: #2563eb;
+          text-decoration: none;
+          border: 1px solid #2563eb;
+          border-radius: 4px;
+          transition: background-color 0.2s, color 0.2s;
+        }
+
+        .usage-link:hover {
+          background-color: #2563eb;
+          color: white;
+        }
         
         /* コンタクトセクションスタイル */
         #contact {
@@ -420,8 +437,130 @@
             background-color: #2563eb;
         }
         
+        /* お問い合わせフォームスタイル */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .form-label {
+            font-weight: 500;
+        }
+        
+        .required-badge {
+            display: inline-block;
+            background-color: #f87171;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        
+        .optional-badge {
+            display: inline-block;
+            background-color: #9ca3af;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 16px;
+        }
+        
+        textarea.form-input {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .form-button {
+            background-color: #4b5563;
+            color: white;
+            border: none;
+            padding: 15px 60px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .form-button:hover {
+            background-color: #374151;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* LINE問い合わせボタン */
+        .line-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #06c755; /* LINEの色 */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .line-button:hover {
+            background-color: #05a847;
+        }
+        
         .line-qr {
             margin-top: 20px;
+        }
+        
+        /* フォーム送信成功メッセージ */
+        .success-message {
+            display: none;
+            background-color: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        /* フォーム送信エラーメッセージ */
+        .error-message {
+            display: none;
+            background-color: #ef4444;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .error-message.show {
+            display: block;
         }
         
         /* フッタースタイル */
@@ -432,11 +571,12 @@
             padding: 20px 0;
             font-size: 0.9rem;
         }
+
         
         /* レスポンシブ調整 */
         @media (max-width: 768px) {
             .main-catch {
-                font-size: 2.2rem;
+                font-size: 2.0rem;
             }
             
             .sub-catch {
@@ -499,8 +639,8 @@
             
             .social-links img,
             .mobile-social img {
-                width: 30px;
-                height: 30px;
+                width: 35px;
+                height: 35px;
                 object-fit: cover; /* 縦横比を保ったまま切り抜き */
                 border-radius: 50%; /* 丸型にする */
             }
@@ -619,9 +759,9 @@
         <div id="particles-js"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="main-catch">あなたのアイデアを形にする、実装力と提案力</h1>
-                <p class="sub-catch">業務効率化ツールからAIアプリ開発まで、実践経験を活かした開発が可能です。</p>
-                <p class="intro-brief">個人開発からチーム開発、SNS運用まで幅広く経験しています。</p>
+                <h1 class="main-catch">「真の課題」を解決する</h1>
+                <p class="sub-catch">WEBアプリ・チャットボットなど、<br>AIを組み込んだ業務効率化ツール</p>
+                <p class="intro-brief">要件整理から実装・運用まで、<br>一貫して全ておまかせください。</p>
                 <a href="#contact" class="cta-button">お問い合わせ</a>
             </div>
         </div>
@@ -633,16 +773,28 @@
             <h2 class="section-title">プロフィール</h2>
             <div class="profile-grid">
                 <div class="profile-info">
-                    <img src="moji.jpg" alt="茂治孝典のプロフィール写真" style="width: 200px; height: 200px; border-radius: 50%; margin-bottom: 20px;">
+                    <img src="moji.jpg" alt="茂治孝典のプロフィール写真" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px;">
                     <h3>茂治 孝典</h3>
-                    <p>ここにプロフィールの詳細を記載します。例：プログラミングと効率化が好きなエンジニア。業務の課題を技術で解決することに情熱を持って取り組んでいます。</p>
+                    <p>
+                      課題発見から提案・開発・改善までを<br>
+                      一貫して対応できるエンジニアです。<br><br>
+
+                      AI活用や業務効率化ツール、<br>
+                      チャットボット開発などの実務経験があり、<br>
+                      クライアントのビジネスゴール達成に<br>
+                      貢献するシステム開発を意識しています。<br><br>
+
+                      技術だけでなく、<br>
+                      わかりやすい説明や丁寧なコミュニケーションも<br>
+                      大切にしています。
+                    </p>
                 </div>
                 <div class="profile-skills">
                     <h3>スキルセット</h3>
                     <table class="skill-table">
                         <tr>
                             <th>プログラミング言語</th>
-                            <td>Python, JavaScript, HTML/CSS, SQL</td>
+                            <td>C++, Java, Python, JavaScript, HTML/CSS, SQL</td>
                         </tr>
                         <tr>
                             <th>フレームワーク</th>
@@ -650,25 +802,25 @@
                         </tr>
                         <tr>
                             <th>ツール/環境</th>
-                            <td>Docker, Git, AWS, Heroku</td>
+                            <td>Docker, Git, Slack, AWS, GCP, Azure</td>
                         </tr>
                         <tr>
                             <th>その他</th>
-                            <td>AI開発, LINEBot, チーム開発</td>
+                            <td>AI開発, LINEBot開発, WEBアプリ開発</td>
                         </tr>
                     </table>
                     
                     <h3>保有資格</h3>
                     <ul style="list-style-position: inside; margin-bottom: 20px;">
-                        <li>基本情報技術者</li>
-                        <li>AWS Cloud Practitioner</li>
-                        <!-- 資格を追加 -->
+                        <li>国家資格：ITパスポート</li>
+                        <li>国家資格：基本情報技術者</li>
+                        <li>Microsoft認定資格：Azure Fundamentals</li>
                     </ul>
                     
                     <h3>業務経験</h3>
                     <ul style="list-style-position: inside; margin-bottom: 20px;">
-                        <li>某IT企業でのインターン経験（3ヶ月）</li>
-                        <li>フリーランスとしての開発実績（○件）</li>
+                        <li>フリーランスエンジニアの元でシステム開発</li>
+                        <li>ITベンチャー企業の社内SE</li>
                         <!-- 経験を追加 -->
                     </ul>
                 </div>
@@ -710,39 +862,78 @@
                     <img src="https://placehold.jp/30/38bdf8/ffffff/300x200.png?text=Hotel%20Bot" alt="ホテル検索LINEボット" class="work-image">
                     <div class="work-content">
                         <h3 class="work-title">ホテル検索LINE Bot</h3>
-                        <p class="work-description">位置情報を送信するだけで周辺のホテルを検索・予約できるLINE Botを開発。楽天トラベルAPIと連携。</p>
+                        <p class="work-description">自然言語で周辺のホテルを検索可能なLINE Botを開発。GoogleマップやChatGPTAPIを使用</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">LINE API</span>
-                            <span class="tech-tag">Heroku</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="work-card">
-                    <img src="https://placehold.jp/30/38bdf8/ffffff/300x200.png?text=Voice%20AI" alt="音声会話AIアプリ" class="work-image">
-                    <div class="work-content">
-                        <h3 class="work-title">音声会話AI Webアプリ</h3>
-                        <p class="work-description">OpenAI APIとWeb Speech APIを活用した、音声で会話できるAIアシスタントアプリを開発。</p>
-                        <div class="tech-tags">
                             <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">OpenAI API</span>
-                            <span class="tech-tag">Web Speech API</span>
-                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Google Apps Script</span>
+                            <span class="tech-tag">LINE API</span>
+                            <span class="tech-tag">ChatGPT API</span>
+                            <span class="tech-tag">AWS Lamda</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- チーム開発プロジェクト -->
+
                 <div class="work-card">
-                    <img src="https://placehold.jp/30/38bdf8/ffffff/300x200.png?text=Company%20Analytics" alt="企業分析Webアプリ" class="work-image">
+                    <img src="https://placehold.jp/30/38bdf8/ffffff/300x200.png?text=Auto%20Reply" alt="業務効率化ツール（返信文自動生成）" class="work-image">
                     <div class="work-content">
-                        <h3 class="work-title">企業分析WEBアプリ</h3>
-                        <p class="work-description">上場企業の財務データを可視化し、AIによる分析レポートを提供するWebアプリケーション。フロントエンド担当。</p>
+                        <h3 class="work-title">業務効率化ツール（返信文自動生成）</h3>
+                        <p class="work-description">
+                            Googleカレンダーの空き時間を抽出し、候補日を含むメール文を自動生成するツールを開発。
+                            Google Calendar APIとChatGPT APIを連携。
+                        </p>
+                        <!-- <a href="https://zenn.dev/mojitakanori/articles/653179e9f4a429" class="usage-link" target="_blank">▶ 使い方を見る</a> -->
+                        <div class="tech-tags">
+                            <span class="tech-tag">GCP AppEngine</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">ChatGPT API</span>
+                            <span class="tech-tag">Google Calendar API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <img src="https://placehold.jp/30/38bdf8/ffffff/300x200.png?text=AI%20CMS" alt="AI記事作成CMS" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">AI記事作成CMS</h3>
+                        <p class="work-description">ChatGPTとGoogle検索を活用し、アウトライン→本文→校正まで自動化。役割に応じた権限管理機能を備えたSEO記事生成CMS。</p>
                         <div class="tech-tags">
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">ChatGPT API</span>
+                            <span class="tech-tag">Google Search API</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- 個人開発：音声会話AI Webアプリ -->
+                <div class="work-card">
+                    <img src="https://placehold.jp/30/38bdf8/ffffff/300x200.png?text=Voice%20AI" alt="音声会話AIバックエンド" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">音声会話AIバックエンド</h3>
+                        <p class="work-description">Whisper・GPT・style-bert-vits2 を連携し、音声で自然に会話できるシステムのバックエンドを開発。ローカル完結の低コスト構成。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">STT</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">TTS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- チーム開発：企業分析WEBアプリ -->
+                <div class="work-card">
+                    <img src="https://placehold.jp/30/38bdf8/ffffff/300x200.png?text=Company%20Analytics" alt="企業分析WEBアプリ" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">企業分析WEBアプリ</h3>
+                        <p class="work-description">指定された企業のSWOT・3C分析レポートを自動生成するツール。ログイン・セッション管理・DB設計などフロント〜バックエンドまで実装を担当。</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Python</span>
                             <span class="tech-tag">Flask</span>
                             <span class="tech-tag">Docker</span>
                         </div>
@@ -756,15 +947,68 @@
     <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">お問い合わせ</h2>
-            <p class="contact-text">お仕事のご相談・ご依頼は以下のメールまでお気軽にご連絡ください</p>
-            <a href="mailto:mojitakanori@gmail.com" class="contact-button">
-                <i class="fas fa-envelope"></i>
-                メールでお問い合わせ
-            </a>
+            
+            <!-- お問い合わせフォーム -->
+            <div class="success-message" id="success-message">
+                お問い合わせを送信しました。確認次第ご連絡いたします。
+            </div>
+            <div class="error-message" id="error-message">
+                送信中にエラーが発生しました。後ほど再度お試しください。
+            </div>
+            
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <div class="form-label-container">
+                        <label class="form-label">件名</label>
+                        <span class="required-badge">必須</span>
+                    </div>
+                    <input type="text" name="subject" class="form-input" placeholder="件名をご入力ください" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-label-container">
+                        <label class="form-label">氏名</label>
+                        <span class="optional-badge">任意</span>
+                    </div>
+                    <input type="text" name="name" class="form-input" placeholder="(例)田中 太朗">
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-label-container">
+                        <label class="form-label">メールアドレス</label>
+                        <span class="required-badge">必須</span>
+                    </div>
+                    <input type="email" name="from_email" class="form-input" placeholder="(例)example@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-label-container">
+                        <label class="form-label">電話番号</label>
+                        <span class="optional-badge">任意</span>
+                    </div>
+                    <input type="tel" name="phone" class="form-input" placeholder="(例)0000-000-0000">
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-label-container">
+                        <label class="form-label">お問い合わせ内容</label>
+                        <span class="required-badge">必須</span>
+                    </div>
+                    <textarea name="message" class="form-input" placeholder="お問い合わせ内容をご入力ください" required></textarea>
+                </div>
+                
+                <div class="button-container">
+                    <button type="submit" class="form-button">送信</button>
+                </div>
+            </form>
+            
+            <!-- LINEボタン -->
             <div class="line-qr">
                 <p>または、LINEでお気軽にご連絡ください</p>
-                <!-- QRコード画像を表示 -->
-                <img src="https://placehold.jp/30/38bdf8/ffffff/200x200.png?text=LINE%20QR" alt="LINE QRコード" width="150" height="150">
+                <a href="https://works.do/GaOqPVL" class="line-button" target="_blank">
+                    <i class="fab fa-line"></i>
+                    LINEでお問い合わせ
+                </a>
             </div>
         </div>
     </section>
@@ -772,13 +1016,15 @@
     <!-- フッター -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 茂治孝典. All Rights Reserved.</p>
+            <p>&copy; 2025 茂治孝典. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- particles.js および jQuery CDN -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- EmailJS ライブラリ読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // ローディングアニメーション
         window.addEventListener('load', function() {
@@ -798,14 +1044,6 @@
             navLinks.classList.toggle('active');
             menuOverlay.classList.toggle('active');
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // クローズボタンでメニューを閉じる
-        menuClose.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
         });
         
         // オーバーレイクリックでメニューを閉じる
@@ -942,6 +1180,60 @@
                 });
             });
         });
+
+        // EmailJS の初期化
+        (function() {
+            // EmailJS初期化
+            emailjs.init("GrwqtCWz5DyROH4pE");
+            
+            // お問い合わせフォーム送信処理
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // 送信ボタンを無効化
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = '送信中...';
+                
+                // メッセージ非表示
+                document.getElementById('success-message').classList.remove('show');
+                document.getElementById('error-message').classList.remove('show');
+                
+                // フォームデータの取得
+                const formData = {
+                    subject: this.subject.value,
+                    from_name: this.name.value || "名前未入力",
+                    from_email: this.from_email.value,
+                    phone: this.phone.value || "電話番号未入力",
+                    message: this.message.value
+                };
+                
+                // EmailJSパラメータを設定
+                const serviceID = "service_wcbuh58";
+                const templateID = "template_pkq9fls";
+                
+                // EmailJS送信
+                emailjs.send(serviceID, templateID, formData)
+                    .then(() => {
+                        document.getElementById('success-message').classList.add('show');
+                        this.reset();
+                        // ボタンを元に戻す
+                        setTimeout(() => {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                        }, 1500);
+                    }, (error) => {
+                        document.getElementById('error-message').classList.add('show');
+                        console.log('EmailJS送信エラー:', error);
+                        // ボタンを元に戻す
+                        setTimeout(() => {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                        }, 1500);
+                    });
+            });
+        })();
     </script>
 </body>
 </html>
