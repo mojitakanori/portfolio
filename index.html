@@ -186,8 +186,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             overflow: hidden;
@@ -199,9 +199,10 @@
         }
         
         .social-links img {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             object-fit: cover;
+            border-radius: 50%; /* 丸型にする */
         }
         
         /* ハンバーガーメニュー */
@@ -237,10 +238,6 @@
             transform: translateY(-9px) rotate(-45deg);
         }
         
-        /* メニューのクローズボタン - デスクトップでは非表示 */
-        .menu-close {
-            display: none;
-        }
         
         /* モバイル用SNSアイコン - デスクトップでは非表示 */
         .mobile-social {
@@ -475,17 +472,6 @@
                 left: 0;
             }
             
-            /* メニューのクローズボタン - モバイルでのみ表示 */
-            .menu-close {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
-                display: block;
-            }
-            
             /* ナビリンクのスタイル調整 */
             .nav-links li {
                 margin: 0;
@@ -504,6 +490,19 @@
             .nav-links a:hover {
                 background-color: rgba(255, 255, 255, 0.05);
                 padding-left: 35px;
+            }
+
+            .social-links {
+              display: flex;
+              gap: 5px;
+            }
+            
+            .social-links img,
+            .mobile-social img {
+                width: 30px;
+                height: 30px;
+                object-fit: cover; /* 縦横比を保ったまま切り抜き */
+                border-radius: 50%; /* 丸型にする */
             }
             
             /* モバイルでの SNS アイコンエリア */
@@ -525,11 +524,8 @@
                 border-radius: 50%;
                 background-color: rgba(255, 255, 255, 0.1);
             }
+
             
-            .mobile-social img {
-                width: 20px;
-                height: 20px;
-            }
             
             /* オーバーレイ背景 */
             .menu-overlay {
@@ -582,7 +578,6 @@
                     <span></span>
                 </div>
                 <ul class="nav-links">
-                    <div class="menu-close">×</div>
                     <li><a href="#top">トップ</a></li>
                     <li><a href="#profile">プロフィール</a></li>
                     <li><a href="#services">お受けしているお仕事</a></li>
@@ -596,7 +591,7 @@
                         <a href="https://zenn.dev/mojitakanori" target="_blank">
                             <img src="zenn-icon.png" alt="Zenn">
                         </a>
-                        <a href="#" target="_blank">
+                        <a href="https://works.do/GaOqPVL" target="_blank">
                             <img src="line-icon.png" alt="LINE">
                         </a>
                     </div>
@@ -608,7 +603,7 @@
                     <a href="https://zenn.dev/mojitakanori" target="_blank">
                         <img src="zenn-icon.png" alt="Zenn">
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="https://works.do/GaOqPVL" target="_blank">
                         <img src="line-icon.png" alt="LINE">
                     </a>
                 </div>
@@ -797,7 +792,6 @@
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         const menuOverlay = document.querySelector('.menu-overlay');
-        const menuClose = document.querySelector('.menu-close');
         
         menuToggle.addEventListener('click', function() {
             this.classList.toggle('active');
